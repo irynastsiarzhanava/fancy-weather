@@ -16,7 +16,7 @@
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/styles.scss */ \"./src/sass/styles.scss\");\n\nvar element = document.querySelector('#root'); //render weather app\n\nvar app = new WeatherApp(element);\n\n//# sourceURL=webpack://fancy-weather/./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/styles.scss */ \"./src/sass/styles.scss\");\n\nvar element = document.querySelector('#root'); // render weather app\n\nvar app = new WeatherApp(element);\n\n//# sourceURL=webpack://fancy-weather/./src/js/index.js?");
 
 /***/ }),
 
