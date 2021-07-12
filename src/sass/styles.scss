@@ -1,3 +1,22 @@
-#root {
-  color: red;
+body { 
+  margin: 0; 
+  padding: 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  background: url('../images/sunset.jpeg'); 
+}
+
+.btn {
+  background: rgba(0, 0, 0, 0.42);
+  color: #ffffff;
+}
+
+.forecast {
+  display: flex;
+  div {
+    flex-direction: column;
+  }
+  .temp {
+    font-size: 50px;
+  }
 }
