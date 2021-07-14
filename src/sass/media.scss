@@ -1,0 +1,113 @@
+$phone: 568px;
+$tablet: 768px;
+$desktop: 1024px;
+
+@media only screen and (min-device-width: $phone) {
+  main {
+    .weather {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      .overcast {
+        margin-top: 70px;
+        margin-left: 30px;
+        h4 {
+          display: none;
+        }
+      }
+    }
+    .forecast {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      h4 {
+        flex-basis: auto;
+        width: 100%;
+        margin-bottom: 80px;
+      }
+      > div {
+        position: relative;
+        text-align: left;
+        margin-right: 20px;
+        > span {
+          position: absolute;
+          bottom: 55px;
+          left: 0;
+        }
+        > p {
+          margin: 0;
+        }
+      }
+      
+    }
+  }
+}
+
+@media only screen and (min-device-width: $tablet) {
+  body {
+    font-size: 25px;
+  }
+  main {
+    .weather {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      .location {
+        text-align: left;
+        > div {
+          justify-content: flex-start;
+        }
+      }
+      .overcast {
+        text-align: left;
+        margin-top: 115px;
+      }
+    }
+    .forecast {
+      justify-content: space-around;
+    }
+  }
+}
+
+@media only screen and (min-device-width: $desktop) {
+  body {
+    font-size: 25px;
+  }
+  main {
+    height: 100vh;
+    .section {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .weather {
+      flex-direction: row;
+      flex: 0 0 50%;
+      width: 45%;
+      justify-content: flex-start;
+      margin: 0 5% 0 0;
+      .location {
+        text-align: left;
+        > div {
+          justify-content: flex-start;
+        }
+      }
+      .overcast {
+        text-align: left;
+        margin: 0;
+      }
+    }
+    .forecast {
+      flex: 0 0 50%;
+      width: 45%;
+      margin: 0 5% 0 0;
+      justify-content: flex-start;
+    }
+    .map {
+      flex: 0 0 100%;
+      display: flex;
+      width: 50%;
+      margin: 0;
+    }
+  }
+}

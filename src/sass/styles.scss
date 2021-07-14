@@ -1,22 +1,87 @@
 body { 
   margin: 0; 
   padding: 0;
-  font-size: 20px;
-  text-transform: uppercase;
-  background: url('../images/sunset.jpeg'); 
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  font-size: 25px;
+  color:#ffffff;
+  background: url('../images/bg_forest.jpg'); 
 }
 
-.btn {
-  background: rgba(0, 0, 0, 0.42);
-  color: #ffffff;
-}
-
-.forecast {
+header {
   display: flex;
-  div {
-    flex-direction: column;
+  margin: 5%;
+  flex-direction: column;
+  .dropdown-toggle, .dropdown-menu {
+    width: 100%;
   }
-  .temp {
+  > * {
+    margin: 2% 0;
+  }
+  .btn {
+    background: rgba(0, 0, 0, 0.42);
+    color: #ffffff;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 5%;
+  h1 {
     font-size: 50px;
+  }
+  section {
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+  h1, h4  {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  p, figure {
+    margin: 0;
+  }
+  .weather {
+    display: flex;
+    flex-direction: column;
+    .location {
+      > div {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        > * {
+          margin-bottom: 0;
+        }
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .temp {
+        font-size: 70px;
+      }
+      .desc {
+        position: relative;
+        bottom: 20px;
+      }
+    }
+    .overcast {
+      margin-top: 30px;
+    }
+  }
+  .forecast {
+    > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      > p {
+        margin: 0 20px;
+      }
+    }
   }
 }
