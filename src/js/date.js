@@ -8,11 +8,25 @@ const day1 = document.getElementById('day1');
 const day2 = document.getElementById('day2');
 const day3 = document.getElementById('day3');
 
-function getDateTime() {
+function getDate() {
   const myDate = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const afterTomorrow = new Date();
+  afterTomorrow.setDate(afterTomorrow.getDate() + 2);
+  const afterAfterTomorrow = new Date();
+  afterAfterTomorrow.setDate(afterAfterTomorrow.getDate() + 3);
   const date = myDate.getDate();
   const month = monthsList[myDate.getMonth() + 1];
   const day = daysList[myDate.getDay()];
+  currentDate.innerHTML = `${day} ${date} ${month}`;
+  day1.innerHTML = daysList[tomorrow.getDay()];
+  day2.innerHTML = daysList[afterTomorrow.getDay()];
+  day3.innerHTML = daysList[afterAfterTomorrow.getDay()];
+}
+
+function getTime() {
+  const myDate = new Date();
   let hours = myDate.getHours();
   let minutes = myDate.getMinutes();
   if (hours.toString().length === 1) {
@@ -21,11 +35,7 @@ function getDateTime() {
   if (minutes.toString().length === 1) {
     minutes = `0${minutes}`;
   }
-  currentDate.innerHTML = `${day} ${date} ${month}`;
   currentTime.innerHTML = `    ${hours}:${minutes}`;
-  day1.innerHTML = daysList[myDate.getDay() + 1];
-  day2.innerHTML = daysList[myDate.getDay() + 2];
-  day3.innerHTML = daysList[myDate.getDay() + 3];
 }
-
-setInterval(getDateTime(), 60000);
+getDate();
+setInterval(getTime(), 60000);

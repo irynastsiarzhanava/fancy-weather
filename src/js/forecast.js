@@ -12,9 +12,9 @@ function getForecast() {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=0a56a45096652a831cb6980d524fe081&units=metric`)
       .then((response) => response.json())
       .then((data) => {
-        tempForecastDay1.innerHTML = data.daily[1].temp.day;
-        tempForecastDay2.innerHTML = data.daily[2].temp.day;
-        tempForecastDay3.innerHTML = data.daily[3].temp.day;
+        tempForecastDay1.innerHTML = Math.round(data.daily[1].temp.day);
+        tempForecastDay2.innerHTML = Math.round(data.daily[2].temp.day);
+        tempForecastDay3.innerHTML = Math.round(data.daily[3].temp.day);
         const weatherIcon1 = data.daily[1].weather[0].icon;
         const weatherIcon2 = data.daily[1].weather[0].icon;
         const weatherIcon3 = data.daily[1].weather[0].icon;
