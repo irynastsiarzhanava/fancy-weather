@@ -15,21 +15,17 @@ function getDateTime() {
   const day = daysList[myDate.getDay()];
   let hours = myDate.getHours();
   let minutes = myDate.getMinutes();
-  let seconds = myDate.getSeconds();
   if (hours.toString().length === 1) {
     hours = `0${hours}`;
   }
   if (minutes.toString().length === 1) {
     minutes = `0${minutes}`;
   }
-  if (seconds.toString().length === 1) {
-    seconds = `0${seconds}`;
-  }
   currentDate.innerHTML = `${day} ${date} ${month}`;
-  currentTime.innerHTML = `   ${hours}:${minutes}:${seconds}`;
+  currentTime.innerHTML = `    ${hours}:${minutes}`;
   day1.innerHTML = daysList[myDate.getDay() + 1];
   day2.innerHTML = daysList[myDate.getDay() + 2];
   day3.innerHTML = daysList[myDate.getDay() + 3];
 }
 
-getDateTime();
+setInterval(getDateTime(), 60000);
