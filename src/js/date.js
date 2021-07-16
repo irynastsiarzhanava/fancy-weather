@@ -2,7 +2,6 @@ const daysList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 const monthsList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const currentDate = document.getElementById('date');
-const currentTime = document.getElementById('time');
 
 const day1 = document.getElementById('day1');
 const day2 = document.getElementById('day2');
@@ -25,17 +24,4 @@ function getDate() {
   day3.innerHTML = daysList[afterAfterTomorrow.getDay()];
 }
 
-function getTime() {
-  const myDate = new Date();
-  let hours = myDate.getHours();
-  let minutes = myDate.getMinutes();
-  if (hours.toString().length === 1) {
-    hours = `0${hours}`;
-  }
-  if (minutes.toString().length === 1) {
-    minutes = `0${minutes}`;
-  }
-  currentTime.innerHTML = `    ${hours}:${minutes}`;
-}
 getDate();
-setInterval(getTime(), 60000);

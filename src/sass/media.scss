@@ -2,7 +2,7 @@ $phone: 568px;
 $tablet: 768px;
 $desktop: 1024px;
 
-@media only screen and (min-device-width: $phone) {
+@media only screen and (min-width: $phone) {
   main {
     .weather {
       flex-direction: row;
@@ -44,7 +44,7 @@ $desktop: 1024px;
   }
 }
 
-@media only screen and (min-device-width: $tablet) {
+@media only screen and (min-width: $tablet) {
   body {
     font-size: 25px;
   }
@@ -70,7 +70,7 @@ $desktop: 1024px;
   }
 }
 
-@media only screen and (min-device-width: $desktop) {
+@media only screen and (min-width: $desktop) {
   body {
     font-size: 25px;
   }
