@@ -76,16 +76,17 @@ $desktop: 1024px;
   }
   main {
     height: 100vh;
-    .section {
-      margin: 0;
+    section {
       box-sizing: border-box;
+      padding: 10px;
+      margin-bottom: 1%;
     }
     .weather {
+      position: relative;
       flex-direction: row;
-      flex: 0 0 50%;
-      width: 45%;
+      flex: 0 0 60%;
+      width: 65%;
       justify-content: flex-start;
-      margin: 0 5% 0 0;
       .location {
         text-align: left;
         > div {
@@ -95,18 +96,21 @@ $desktop: 1024px;
       .overcast {
         text-align: left;
         margin: 0;
+        position: absolute;
+        bottom: 50px;
+        right: 100px;
       }
     }
     .forecast {
-      flex: 0 0 50%;
-      width: 45%;
-      margin: 0 5% 0 0;
-      justify-content: flex-start;
+      flex: 0 0 36%;
+      width: 65%;
+      justify-content: space-around;
     }
     .map {
       flex: 0 0 100%;
       display: flex;
-      width: 50%;
+      flex-direction: column;
+      width: 20%;
       margin: 0;
     }
   }
