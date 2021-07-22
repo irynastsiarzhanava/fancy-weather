@@ -13,19 +13,13 @@
   <script src="https://kit.fontawesome.com/efee5868b2.js" crossorigin="anonymous"></script>
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
-  <style>
-  #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-  </style>
 <script defer src="main.js"></script></head>
 <body>
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
-  <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
-  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js">
   </script>
   <header>
-    <button type="button" class="btn">
+    <button type="button" class="btn refresh">
       <i>&#x21bb;</i>
     </button>
     <div class="dropdown">
@@ -89,85 +83,11 @@
         <figure><img id="icon-day3" alt="Weather icon"></figure>
       </div>
     </section>
-    <section class="map">
+    <section class="map-block">
       <div id="map"></div>
-      <div>State: <span id="state"></span></div>
-      <div>Postal: <span id="postal"></span></div>
       <div>Latitude: <span id="latitude"></span></div>
       <div>Longitude: <span id="longitude"></span></div>
-      <div>IP address: <span id="ipv4"></span></div>  
     </section>
   </main>
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoidmVyYXNpYXZrYSIsImEiOiJja3Fqc2I5bTMwaWdxMndwcW14eWo2azY0In0.wB2BrV0hfUKqD3hgs9rLog';
-  var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v11',
-  center: [-79.4512, 43.6568],
-  zoom: 8
-  });
-   
-  /* Given a query in the form "lng, lat" or "lat, lng"
-  * returns the matching geographic coordinate(s)
-  * as search results in carmen geojson format,
-  * https://github.com/mapbox/carmen/blob/master/carmen-geojson.md */
-  var coordinatesGeocoder = function (query) {
-  // Match anything which looks like
-  // decimal degrees coordinate pair.
-  var matches = query.match(
-  /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-  );
-  if (!matches) {
-  return null;
-  }
-   
-  function coordinateFeature(lng, lat) {
-  return {
-  center: [lng, lat],
-  geometry: {
-  type: 'Point',
-  coordinates: [lng, lat]
-  },
-  place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-  place_type: ['coordinate'],
-  properties: {},
-  type: 'Feature'
-  };
-  }
-   
-  var coord1 = Number(matches[1]);
-  var coord2 = Number(matches[2]);
-  var geocodes = [];
-   
-  if (coord1 < -90 || coord1 > 90) {
-  // must be lng, lat
-  geocodes.push(coordinateFeature(coord1, coord2));
-  }
-   
-  if (coord2 < -90 || coord2 > 90) {
-  // must be lat, lng
-  geocodes.push(coordinateFeature(coord2, coord1));
-  }
-   
-  if (geocodes.length === 0) {
-  // else could be either lng, lat or lat, lng
-  geocodes.push(coordinateFeature(coord1, coord2));
-  geocodes.push(coordinateFeature(coord2, coord1));
-  }
-   
-  return geocodes;
-  };
-   
-  // Add the control to the map.
-  map.addControl(
-  new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken,
-  localGeocoder: coordinatesGeocoder,
-  zoom: 4,
-  placeholder: 'Try: -40, 170',
-  mapboxgl: mapboxgl
-  })
-  );
-  </script>
 </body>
 </html>
