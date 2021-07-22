@@ -6,3 +6,4 @@ import './date.js';
 import './time.js';
 import './weather.js';
 import './forecast.js';
+import './map.js';

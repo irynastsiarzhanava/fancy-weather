@@ -10,7 +10,6 @@ $desktop: 1024px;
       justify-content: center;
       .overcast {
         margin-top: 70px;
-        margin-left: 30px;
         h4 {
           display: none;
         }
@@ -39,7 +38,9 @@ $desktop: 1024px;
           margin: 0;
         }
       }
-      
+    }
+    #map {
+      height: 500px;
     }
   }
 }
@@ -47,6 +48,17 @@ $desktop: 1024px;
 @media only screen and (min-width: $tablet) {
   body {
     font-size: 25px;
+  }
+  header {
+    flex-direction: row;
+    .input-group {
+      max-width: 400px;
+      margin-left: auto;
+      order: 2;
+    }
+    .refresh, .dropdown {
+      margin-right: 10px;
+    }
   }
   main {
     .weather {
@@ -84,7 +96,7 @@ $desktop: 1024px;
     .weather {
       position: relative;
       flex-direction: row;
-      flex: 0 0 60%;
+      flex: 0 0 40%;
       width: 65%;
       justify-content: flex-start;
       .location {
@@ -102,16 +114,17 @@ $desktop: 1024px;
       }
     }
     .forecast {
-      flex: 0 0 36%;
+      flex: 0;
       width: 65%;
       justify-content: space-around;
     }
-    .map {
-      flex: 0 0 100%;
+    .map-block {
+      flex: 0 0 68%;
       display: flex;
       flex-direction: column;
-      width: 20%;
+      width: 33%;
       margin: 0;
+      margin-left: auto;
     }
   }
 }

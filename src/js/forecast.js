@@ -10,7 +10,12 @@ function getForecast() {
     const latitude = JSON.parse(window.localStorage.getItem('latitude'));
     const longitude = JSON.parse(window.localStorage.getItem('longitude'));
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=0a56a45096652a831cb6980d524fe081&units=metric`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
       .then((data) => {
         tempForecastDay1.innerHTML = Math.round(data.daily[1].temp.day);
         tempForecastDay2.innerHTML = Math.round(data.daily[2].temp.day);
@@ -22,7 +27,8 @@ function getForecast() {
         iconDay2.setAttribute('src', `http://openweathermap.org/img/w/${weatherIcon2}.png`);
         iconDay3.setAttribute('src', `http://openweathermap.org/img/w/${weatherIcon3}.png`);
         localStorage.setItem('Forecast', JSON.stringify(data));
-      });
+      })
+      .catch((error) => console.log('Looks like there was a problem with forecast data: ', error));
   }
 }
 
