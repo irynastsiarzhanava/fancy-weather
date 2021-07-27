@@ -85,6 +85,7 @@ $desktop: 1024px;
 @media only screen and (min-width: $desktop) {
   body {
     font-size: 25px;
+    overflow: hidden;
   }
   main {
     height: 100vh;
