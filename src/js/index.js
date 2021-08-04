@@ -1,6 +1,7 @@
 import '../sass/styles.scss';
 import '../sass/media.scss';
-import './create';
+import './layout/header';
+import './layout/main';
 import './location';
 import './date';
 import './time';
