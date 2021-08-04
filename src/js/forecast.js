@@ -17,12 +17,15 @@ function getForecast() {
         return response.json();
       })
       .then((data) => {
-        tempForecastDay1.innerHTML = Math.round(data.daily[1].temp.day);
-        tempForecastDay2.innerHTML = Math.round(data.daily[2].temp.day);
-        tempForecastDay3.innerHTML = Math.round(data.daily[3].temp.day);
+        function round(temp) {
+          return Math.round(temp);
+        }
+        tempForecastDay1.innerHTML = round(data.daily[1].temp.day);
+        tempForecastDay2.innerHTML = round(data.daily[2].temp.day);
+        tempForecastDay3.innerHTML = round(data.daily[3].temp.day);
         const weatherIcon1 = data.daily[1].weather[0].icon;
-        const weatherIcon2 = data.daily[1].weather[0].icon;
-        const weatherIcon3 = data.daily[1].weather[0].icon;
+        const weatherIcon2 = data.daily[2].weather[0].icon;
+        const weatherIcon3 = data.daily[3].weather[0].icon;
         iconDay1.setAttribute('src', `http://openweathermap.org/img/w/${weatherIcon1}.png`);
         iconDay2.setAttribute('src', `http://openweathermap.org/img/w/${weatherIcon2}.png`);
         iconDay3.setAttribute('src', `http://openweathermap.org/img/w/${weatherIcon3}.png`);
