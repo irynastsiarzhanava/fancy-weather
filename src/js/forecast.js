@@ -6,7 +6,7 @@ const iconDay2 = document.getElementById('icon-day2');
 const iconDay3 = document.getElementById('icon-day3');
 
 function getForecast() {
-  if (localStorage.getItem('location') !== null) {
+  if (localStorage.getItem('location')) {
     const latitude = JSON.parse(window.localStorage.getItem('latitude'));
     const longitude = JSON.parse(window.localStorage.getItem('longitude'));
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=0a56a45096652a831cb6980d524fe081&units=metric`)
