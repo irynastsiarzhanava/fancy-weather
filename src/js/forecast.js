@@ -1,3 +1,5 @@
+import { roundFunction } from './helpers';
+
 const tempForecastDay1 = document.getElementById('temp-forecast-day1');
 const tempForecastDay2 = document.getElementById('temp-forecast-day2');
 const tempForecastDay3 = document.getElementById('temp-forecast-day3');
@@ -12,12 +14,9 @@ function getForecast() {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=0a56a45096652a831cb6980d524fe081&units=metric`)
       .then((response) => response.json())
       .then((data) => {
-        function round(temp) {
-          return Math.round(temp);
-        }
-        tempForecastDay1.innerHTML = round(data.daily[1].temp.day);
-        tempForecastDay2.innerHTML = round(data.daily[2].temp.day);
-        tempForecastDay3.innerHTML = round(data.daily[3].temp.day);
+        tempForecastDay1.innerHTML = roundFunction(data.daily[1].temp.day);
+        tempForecastDay2.innerHTML = roundFunction(data.daily[2].temp.day);
+        tempForecastDay3.innerHTML = roundFunction(data.daily[3].temp.day);
         const weatherIcon1 = data.daily[1].weather[0].icon;
         const weatherIcon2 = data.daily[2].weather[0].icon;
         const weatherIcon3 = data.daily[3].weather[0].icon;

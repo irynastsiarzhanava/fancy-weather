@@ -1,4 +1,4 @@
-export default function createlocationBlock() {
+export default function createLocationBlock() {
   const location = document.createElement('div');
   location.setAttribute('class', 'location');
   location.innerHTML = `
