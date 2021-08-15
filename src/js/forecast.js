@@ -10,12 +10,7 @@ function getForecast() {
     const latitude = JSON.parse(window.localStorage.getItem('latitude'));
     const longitude = JSON.parse(window.localStorage.getItem('longitude'));
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=0a56a45096652a831cb6980d524fe081&units=metric`)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
         function round(temp) {
           return Math.round(temp);

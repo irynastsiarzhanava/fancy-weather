@@ -7,10 +7,6 @@ const longitude = document.getElementById('longitude');
 
 const locationData = async function getLocation() {
   const response = await fetch('https://geolocation-db.com/json/');
-  if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    throw new Error(message);
-  }
   const data = await response.json();
   return data;
 };
