@@ -9,7 +9,7 @@ function getWeather() {
   if (localStorage.getItem('location')) {
     const latitude = JSON.parse(window.localStorage.getItem('latitude'));
     const longitude = JSON.parse(window.localStorage.getItem('longitude'));
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0a56a45096652a831cb6980d524fe081&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0a56a45096652a831cb6980d524fe081&units=metric`)
       .then((response) => response.json())
       .then((data) => {
         temp.innerHTML = Math.round(data.main.temp);
